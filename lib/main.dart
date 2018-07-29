@@ -33,6 +33,44 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+
+    Widget buildButton(IconData icon, String buttonTitle){
+      final Color tintColor=Colors.blue;
+      return new Column(
+        children: <Widget>[
+          new Icon (icon, color:tintColor),
+          new Container(
+            margin: const EdgeInsets.only(top: 5.0),
+            child: new Text(buttonTitle, style: new TextStyle(fontSize: 16.0,
+                fontWeight: FontWeight.w500, color: tintColor),),
+          )
+        ],
+      );
+    }
+
+    Widget fourButtonSection=new Container(
+      child:new Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+
+          buildButton(Icons.home, "Home"),
+          buildButton(Icons.arrow_back, "Back"),
+          buildButton(Icons.arrow_forward, "Next"),
+          buildButton(Icons.share, "Share"),
+        ],
+      )
+    );
+
+    final bottomTextSection=new Container(
+      padding: const EdgeInsets.all(10.0),
+      child: new Text("I am Trinh Van Vinh. I live in HaNoi, VietNam.! I am learning Node JS, Angular, JavaScript, ReactJS, React Native, "
+          "Android, IOS, Kotlin, new Technolagies overide.",
+      style: new TextStyle(
+        color: Colors.grey[850],
+        fontSize: 16.0
+      ),),
+    );
+
     // TODO: implement build
     return new MaterialApp(
       title: "",
@@ -49,7 +87,9 @@ class MyApp extends StatelessWidget {
               'images/modic.jpg',
               fit:BoxFit.cover
             ),
-            titleSection
+            titleSection,
+            fourButtonSection,
+            bottomTextSection
           ],
         ),
      ),
